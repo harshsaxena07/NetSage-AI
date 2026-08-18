@@ -1,0 +1,39 @@
+NetSage AI Evaluation Report
+==================================================
+
+Overall Results
+------------------------------
+total_cases: 32
+correct: 20
+incorrect: 4
+ai_unavailable: 8
+errors: 0
+evaluated_cases: 24
+accuracy_percent: 83.33
+
+
+Category Performance
+category  total_cases  correct  incorrect  ai_unavailable  accuracy_percent
+     ACL            4        3          1               0              75.0
+    DHCP            4        4          0               0             100.0
+     DNS            4        4          0               0             100.0
+ Gateway            4        3          1               0              75.0
+     NAT            4        0          0               4               0.0
+ Routing            4        2          2               0              50.0
+    VLAN            4        4          0               0             100.0
+Wireless            4        0          0               4               0.0
+
+Confidence Distribution
+confidence  count
+      High     22
+       Low      8
+    Medium      2
+
+Rule Checker Summary
+cases_with_rule_findings: 32
+cases_without_rule_findings: 0
+
+
+Human Review Summary
+human_review_required: 32
+human_review_not_required: 0

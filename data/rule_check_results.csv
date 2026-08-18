@@ -1,0 +1,33 @@
+case_id,category,rule_findings,rule_issue_detected,expected_fault
+C001,VLAN,No deterministic rule violation detected,No,PC1 access port is assigned to the wrong VLAN.
+C002,VLAN,Required VLAN is missing,Yes,Required VLAN is missing from the switch.
+C003,VLAN,No deterministic rule violation detected,No,Trunk does not allow VLAN 30.
+C004,VLAN,No deterministic rule violation detected,No,Native VLAN mismatch exists on the trunk.
+C005,Gateway,Gateway mismatch detected,Yes,Default gateway does not belong to the PC subnet.
+C006,Gateway,Interface is administratively down,Yes,Gateway interface is administratively down.
+C007,Gateway,Duplicate IP detected,Yes,PC has an IP conflict with the default gateway.
+C008,Gateway,Wrong subnet mask detected,Yes,Incorrect subnet mask causes incorrect local network determination.
+C009,DHCP,No deterministic rule violation detected,No,DHCP pool for the client network is missing.
+C010,DHCP,No deterministic rule violation detected,No,DHCP excluded-address configuration excludes the entire address pool.
+C011,DHCP,No deterministic rule violation detected,No,DHCP relay/helper address is missing.
+C012,DHCP,Gateway mismatch detected,Yes,DHCP pool provides the wrong default gateway.
+C013,DNS,No deterministic rule violation detected,No,PC is configured with the wrong DNS server.
+C014,DNS,No deterministic rule violation detected,No,DNS service is unavailable even though the server is reachable.
+C015,DNS,No deterministic rule violation detected,No,ACL blocks DNS queries from the client subnet.
+C016,DNS,No deterministic rule violation detected,No,Required DNS record is missing.
+C017,Routing,Required route is missing,Yes,Required route to the remote network is missing.
+C018,Routing,No deterministic rule violation detected,No,Static route has an incorrect next-hop address.
+C019,Routing,No deterministic rule violation detected,No,The LAN is not being advertised into OSPF.
+C020,Routing,Default route is missing,Yes,Default route is missing.
+C021,ACL,No deterministic rule violation detected,No,ACL explicitly denies required client-to-server traffic.
+C022,ACL,No deterministic rule violation detected,No,ACL is configured but not applied to the intended interface.
+C023,ACL,No deterministic rule violation detected,No,ACL direction is incorrect for the intended filtering point.
+C024,ACL,No deterministic rule violation detected,No,Implicit deny blocks the remaining required clients.
+C025,NAT,No deterministic rule violation detected,No,NAT overload is not translating inside addresses.
+C026,NAT,No deterministic rule violation detected,No,Inside interface is not marked for NAT.
+C027,NAT,No deterministic rule violation detected,No,Outside interface is incorrectly marked as inside.
+C028,NAT,No deterministic rule violation detected,No,NAT ACL does not include the second client subnet/range.
+C029,Wireless,No deterministic rule violation detected,No,SSID is mapped to the wrong VLAN.
+C030,Wireless,No deterministic rule violation detected,No,Wireless VLAN is not carried across the trunk to the gateway/DHCP network.
+C031,Wireless,No deterministic rule violation detected,No,Client is using an incorrect wireless security key.
+C032,Wireless,No deterministic rule violation detected,No,"Guest isolation/ACL protection is missing, allowing internal access."

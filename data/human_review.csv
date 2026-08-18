@@ -1,0 +1,3 @@
+case_id,decision,corrected_diagnosis,reviewer_reason
+C001,ACCEPTED,,Reviewed against the supplied Cisco evidence and expected network behavior.
+C017,ACCEPTED,,Reviewed against the supplied Cisco evidence and expected network behavior.
