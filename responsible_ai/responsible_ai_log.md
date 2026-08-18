@@ -198,15 +198,26 @@ When an AI recommendation is found to be incorrect or incomplete, a human review
 
 EDITED
 
-and provide a corrected diagnosis.
+and provide a corrected diagnosis and reviewer reason.
 
-The corrected diagnosis is stored with the review record.
+The corrected diagnosis is stored with the review record in:
 
-This creates a mechanism for identifying and documenting AI errors.
+data/human_review.csv
 
-At least five cases should be reviewed and corrected during final evaluation where the AI output requires correction.
+The following AI outputs were reviewed and corrected during evaluation:
 
----
+| Case ID | Category | Human Review Decision | Corrected Diagnosis |
+|---|---|---|---|
+| C008 | Gateway | EDITED | The PC is configured with an incorrect subnet mask. The expected /24 network requires subnet mask 255.255.255.0 instead of 255.255.0.0. |
+| C018 | Routing | EDITED | The static route for 10.10.20.0 points to the incorrect next-hop address. The correct next hop is 10.10.30.1. |
+| C019 | Routing | EDITED | R1 is not advertising the 192.168.40.0/24 LAN into OSPF, so R2 does not learn the route. |
+| C024 | ACL | EDITED | The ACL permits only host 192.168.10.10 instead of the required 192.168.10.0/24 subnet, so the implicit deny blocks the remaining clients. |
+
+These corrections demonstrate that the system supports human oversight when the AI diagnosis does not sufficiently match the supplied network evidence.
+
+The review records also contain a reviewer reason explaining why the diagnosis was corrected.
+
+The project currently contains four documented EDITED AI outputs. Additional cases should be reviewed during final evaluation until the required minimum of five corrected AI outputs is reached.
 
 # 11. Privacy Considerations
 
