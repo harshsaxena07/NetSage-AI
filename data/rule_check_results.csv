@@ -24,8 +24,8 @@ C022,ACL,No deterministic rule violation detected,No,ACL is configured but not a
 C023,ACL,No deterministic rule violation detected,No,ACL direction is incorrect for the intended filtering point.
 C024,ACL,No deterministic rule violation detected,No,Implicit deny blocks the remaining required clients.
 C025,NAT,No deterministic rule violation detected,No,NAT overload is not translating inside addresses.
-C026,NAT,No deterministic rule violation detected,No,Inside interface is not marked for NAT.
-C027,NAT,No deterministic rule violation detected,No,Outside interface is incorrectly marked as inside.
+C026,NAT,NAT inside interface is not configured,Yes,Inside interface is not marked for NAT.
+C027,NAT,NAT outside interface incorrectly configured as inside,Yes,Outside interface is incorrectly marked as inside.
 C028,NAT,No deterministic rule violation detected,No,NAT ACL does not include the second client subnet/range.
 C029,Wireless,No deterministic rule violation detected,No,SSID is mapped to the wrong VLAN.
 C030,Wireless,No deterministic rule violation detected,No,Wireless VLAN is not carried across the trunk to the gateway/DHCP network.

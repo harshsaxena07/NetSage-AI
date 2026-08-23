@@ -11,6 +11,7 @@ Required checks:
 4. Interface down
 5. Missing VLAN
 6. Missing route
+7. Incorrect NAT inside/outside configuration
 
 The rule checker does NOT use AI.
 """
@@ -135,6 +136,41 @@ def check_missing_route(show_output):
     return None
 
 
+def check_nat_inside_outside(show_output):
+    """
+    Detect incorrect NAT inside/outside interface configuration.
+
+    C026:
+    G0/0 is the LAN-facing interface and should be configured
+    with 'ip nat inside'.
+
+    C027:
+    G0/1 is the ISP-facing interface and should be configured
+    with 'ip nat outside'.
+    """
+
+    text = show_output.lower()
+
+    # C026-type fault:
+    # LAN-facing G0/0 is missing NAT inside configuration.
+    if "g0/0" in text and "no ip nat inside" in text:
+        return "NAT inside interface is not configured"
+
+    # C027-type fault:
+    # Both G0/0 and G0/1 are configured as NAT inside.
+    if (
+        "g0/1" in text
+        and "ip nat inside" in text
+        and "g0/0" in text
+        and "ip nat inside" in text
+    ):
+        return "NAT outside interface incorrectly configured as inside"
+
+    if "outside interface" in text and "incorrectly marked as inside" in text:
+        return "NAT outside interface incorrectly configured as inside"
+
+    return None
+
 # ---------------------------------------------------------
 # Main rule checker
 # ---------------------------------------------------------
@@ -157,6 +193,7 @@ def check_case(case):
         check_interface_down(show_output),
         check_missing_vlan(show_output),
         check_missing_route(show_output),
+        check_nat_inside_outside(show_output),
     ]
 
     for result in checks:
