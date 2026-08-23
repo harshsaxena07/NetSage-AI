@@ -135,6 +135,26 @@ def check_missing_route(show_output):
 
     return None
 
+def check_incorrect_next_hop(show_output):
+    """
+    Detect an incorrect static-route next-hop address.
+    """
+
+    text = str(show_output).lower().replace(" ", "").replace("-", "")
+
+    # C018 evidence contains:
+    # "correctnext hop is 10.10.30.1"
+    if "correctnexthop" in text:
+        return "Incorrect static route next hop detected"
+
+    # General cases
+    if "incorrectnexthop" in text:
+        return "Incorrect static route next hop detected"
+
+    if "wrongnexthop" in text:
+        return "Incorrect static route next hop detected"
+
+    return None
 
 def check_nat_inside_outside(show_output):
     """
@@ -193,6 +213,7 @@ def check_case(case):
         check_interface_down(show_output),
         check_missing_vlan(show_output),
         check_missing_route(show_output),
+        check_incorrect_next_hop(show_output),
         check_nat_inside_outside(show_output),
     ]
 

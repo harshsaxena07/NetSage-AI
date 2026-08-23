@@ -16,7 +16,7 @@ C014,DNS,No deterministic rule violation detected,No,DNS service is unavailable 
 C015,DNS,No deterministic rule violation detected,No,ACL blocks DNS queries from the client subnet.
 C016,DNS,No deterministic rule violation detected,No,Required DNS record is missing.
 C017,Routing,Required route is missing,Yes,Required route to the remote network is missing.
-C018,Routing,No deterministic rule violation detected,No,Static route has an incorrect next-hop address.
+C018,Routing,Incorrect static route next hop detected,Yes,Static route has an incorrect next-hop address.
 C019,Routing,No deterministic rule violation detected,No,The LAN is not being advertised into OSPF.
 C020,Routing,Default route is missing,Yes,Default route is missing.
 C021,ACL,No deterministic rule violation detected,No,ACL explicitly denies required client-to-server traffic.
